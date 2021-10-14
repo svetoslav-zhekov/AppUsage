@@ -1,0 +1,97 @@
+﻿<Page x:Class="AppUsage.CpuGpu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:AppUsage" 
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="600"
+      Title="CpuGpu" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+
+    <Page.Resources>
+
+        <!--Different CornerRadius Setups-->
+        <Style TargetType="Button" x:Key="CpuStyle" BasedOn="{StaticResource FunctionButtons}">
+            <Setter Property="Border.CornerRadius" Value="20,0,0,20"/>
+        </Style>
+        <Style TargetType="Button" x:Key="RamStyle" BasedOn="{StaticResource FunctionButtons}">
+            <Setter Property="Border.CornerRadius" Value="0,0,0,0"/>
+        </Style>
+        <Style TargetType="Button" x:Key="GpuStyle" BasedOn="{StaticResource FunctionButtons}">
+            <Setter Property="Border.CornerRadius" Value="0,20,20,0"/>
+        </Style>
+
+    </Page.Resources>
+
+    <!--Main Grid-->
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Buttons Grid-->
+        <Grid Grid.Column="1" HorizontalAlignment="Center"
+              VerticalAlignment="Center" Width="300" Height="60">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="CPU" Content="CPU" Click="CPU_Click" 
+                    Style="{StaticResource CpuStyle}"/>
+            <Button x:Name="RAM" Grid.Column="1" Content="RAM" Click="RAM_Click" 
+                    Style="{StaticResource RamStyle}"/>
+            <Button x:Name="GPU" Grid.Column="2" Content="GPU" Click="GPU_Click" 
+                    Style="{StaticResource GpuStyle}"/>
+        </Grid>
+
+        <!--Content Grid-->
+        <Grid x:Name="ContentGrid" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--CPU Stuff (Labels)-->
+            <Label x:Name="CpuPercentage" HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" 
+                   Grid.Column="1" Grid.ColumnSpan="2" 
+                   Content="0%" FontSize="65" Foreground="White"/>
+            <materialDesign:PackIcon Width="35" Height="35" 
+                          Kind="Poll" Foreground="White"
+                          HorizontalAlignment="Right" VerticalAlignment="Top"
+                          Margin="0, 40, 0, 0"/>
+
+            <!--RAM Stuff-->
+            <Label x:Name="RamPercentage" HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" Visibility="Hidden"
+                   Grid.Column="1" Grid.ColumnSpan="2" 
+                   Content="0%" FontSize="65" Foreground="White"/>
+
+            <Label x:Name="RamAvailable" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" Visibility="Hidden"
+                Grid.ColumnSpan="3" Content="Available: " FontSize="55" Foreground="White"/>
+
+            <!--GPU Stuff-->
+            <Label x:Name="GpuPercentage" HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" Visibility="Hidden"
+                   Grid.Column="1" Grid.ColumnSpan="2" 
+                   Content="0%" FontSize="65" Foreground="White"/>
+        </Grid>
+
+        <!--Progress Bars-->
+        <ProgressBar x:Name="CpuProgress" Grid.Row="1" Foreground="#F9AA33" 
+                     VerticalAlignment="Bottom" Height="50" Width="400" BorderBrush="White"/>
+        <ProgressBar x:Name="RamProgress" Grid.Row="1" Foreground="#F9AA33" 
+                     Visibility="Hidden" VerticalAlignment="Bottom" Height="50" Width="400" BorderBrush="White"/>
+        <ProgressBar x:Name="GpuProgress" Grid.Row="1" Foreground="#F9AA33" 
+                     Visibility="Hidden" VerticalAlignment="Bottom" Height="50" Width="400" BorderBrush="White"/>
+
+    </Grid>
+</Page>

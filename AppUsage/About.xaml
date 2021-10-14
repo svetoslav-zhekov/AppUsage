@@ -1,0 +1,41 @@
+﻿<Page x:Class="AppUsage.About"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AppUsage"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="600"
+      Title="About">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="450"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Text-->
+        <TextBlock Width="550" TextAlignment="Center" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   TextWrapping="Wrap" FontSize="35"
+                   Foreground="White">
+            This application was created as a personal project, it's use is to
+            show selected applications's usage time, all running applications's
+            RAM usage and total CPU/RAM/GPU usage.
+        </TextBlock>
+
+        <!--GitHub Link-->
+        <Separator Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock VerticalAlignment="Center" TextAlignment="Center" 
+                   HorizontalAlignment="Center" Width="600"
+                   TextWrapping="Wrap" FontSize="30" Grid.Row="1" 
+                   Foreground="White">
+            /Github/
+            <LineBreak/>
+            <Hyperlink NavigateUri="https://github.com/svetoslav-zhekov" 
+                       RequestNavigate="Hyperlink_RequestNavigate">
+                https://github.com/svetoslav-zhekov
+            </Hyperlink>
+        </TextBlock>
+    </Grid>
+</Page>

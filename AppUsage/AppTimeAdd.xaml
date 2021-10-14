@@ -1,0 +1,88 @@
+﻿<Window x:Class="AppUsage.AppTimeAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppUsage"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="AppTimeAdd" Height="500" Width="800"
+        WindowStyle="None"
+        Background="#232F34"
+        BorderBrush="#344955"
+        BorderThickness="3"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="AddStyle" BasedOn="{StaticResource FunctionButtons}">
+            <Setter Property="Border.CornerRadius" Value="20,20,20,20"/>
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+    </Window.Resources>
+
+    <!--Main Grid-->
+    <Grid x:Name="MainGrid">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Top Bar Grid (Exit Button)-->
+        <Grid x:Name="TopBarGrid" MouseDown="TopBarGrid_MouseDown"
+              Background="#344955">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Exit Button-->
+            <Button x:Name="ButtonExit" Click="ButtonExit_Click"                         
+                            Style="{StaticResource TopBarMenuButton}"
+                            Foreground="White" Grid.Column="4">
+                <materialDesign:PackIcon Kind="WindowClose" Background="#344955" 
+                                             Width="35" Height="35"/>
+                <Button.ToolTip>
+                    Exit Window
+                </Button.ToolTip>
+            </Button>
+
+            <!--Text Top Bar-->
+            <TextBlock Text="Time Application Track (Add)" Foreground="White" FontSize="30" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"
+                       Grid.ColumnSpan="2"/>
+        </Grid>
+
+        <!--AddBox And Button-->
+        <Grid x:Name="AddBox" Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="AddInfo"  Foreground="White" FontSize="30"
+                       FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="Enter Application Name:"/>
+
+            <TextBox x:Name="GetName" Text="{Binding AppName}" FontSize="35" 
+                     Width="550" Height="80" VerticalAlignment="Bottom"/>
+        
+            <!--Information About Exe TextBlock-->
+            <TextBlock x:Name="ExeInfo"  Foreground="White" FontSize="18"
+                       FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"
+                       Grid.Row="1">
+                Msg: Make sure to add the exe name of the application!  <LineBreak/>
+                Example: For Google Chrome, Chrome is the exe name! <LineBreak/>
+                AppUsage might not track your application. <LineBreak/>
+                In that case check if the exe name is correct!
+            </TextBlock>
+
+            <Button x:Name="ADD" Content="ADD" Click="ADD_Click"
+                    Style="{StaticResource AddStyle}" Margin="0,50,0,0" Grid.Row="1"/>
+
+        </Grid>
+
+    </Grid>
+</Window>
