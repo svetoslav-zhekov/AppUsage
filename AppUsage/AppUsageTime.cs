@@ -107,22 +107,22 @@ namespace AppUsage
         private void convertToMinutes(int seconds)
         {
             int minutes = (seconds - seconds % 60) / 60;
-            this.minutes += minutes;
-            this.seconds += (seconds - minutes * 60);
+            addMinutes(minutes);
+            addSeconds(seconds - (minutes * 60));
         }
 
         private void convertToHours(int minutes)
         {
             int hours = (minutes - minutes % 60) / 60;
-            this.hours += hours;
-            this.minutes += (minutes - hours * 60);
+            addHours(hours);
+            addMinutes(minutes - (hours * 60));
         }
 
         private void convertToDays(int hours)
         {
             int days = (hours - hours % 24) / 24;
-            this.days += days;
-            this.hours += (hours - days * 24);
+            addDays(days);
+            addHours(hours - (days * 24));
         }
 
     }

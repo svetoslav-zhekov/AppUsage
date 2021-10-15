@@ -258,6 +258,8 @@ namespace AppUsage
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
+            checkingTimer.IsEnabled = false;
+            checkingTimer.Stop();
         }
     }
 }
