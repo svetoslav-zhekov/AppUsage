@@ -36,7 +36,7 @@
             <LineBreak/>
             If you want to start tracking your application usage time, you have to click
             on AppTime everytime you start AppUsage! Otherwise AppUsage wont start time tracking. <LineBreak/>
-            After this you can minimize AppUsage.
+            AppTime must be clicked for it to track time.
         </TextBlock>
 
         <Separator Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
