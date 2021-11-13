@@ -14,3 +14,5 @@ AppUsage is a personal project application which aims to provide information abo
 * [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms)
 * [Material Design In XAML](http://materialdesigninxaml.net/)
 * [Syncfusion UI](https://www.syncfusion.com/)
+
+**UI Framework used is [WPF](https://docs.microsoft.com/en-us/visualstudio/designers/getting-started-with-wpf?view=vs-2022).**
