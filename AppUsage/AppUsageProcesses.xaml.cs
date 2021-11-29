@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace AppUsage
@@ -40,27 +29,28 @@ namespace AppUsage
             dispTimer.Tick += a;
         }
 
-        /// Get All Current Running Processes And Add The In The StackPanel (DispTimer Tick)
-        private void AppInfoTick(object sender, EventArgs e)
+        /// Add Processes In AppStacker
+        private void AddProcesses(Process[] processes)
         {
-            Process[] processes = Process.GetProcesses();
-            ResetStackPanel();
-
             foreach (Process process in processes)
             {
                 AppStacker.Children.Add(AppInfo(process));
             }
         }
 
+        /// Get All Current Running Processes And Add The In The StackPanel (DispTimer Tick)
+        private void AppInfoTick(object sender, EventArgs e)
+        {
+            Process[] processes = Process.GetProcesses();
+            ResetStackPanel();
+            AddProcesses(processes);
+        }
+
         /// On StartUp Of Page, Get All Currently Running Processes And Add Them In StackPanel 
         private void AppInfoStartUp()
         {
             Process[] processes = Process.GetProcesses();
-
-            foreach (Process process in processes)
-            {
-                AppStacker.Children.Add(AppInfo(process));
-            }
+            AddProcesses(processes);
         }
 
         /// Convert RAM Bytes To MBytes
