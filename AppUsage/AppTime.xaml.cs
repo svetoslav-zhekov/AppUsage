@@ -81,7 +81,7 @@ namespace AppUsage
 
         private void RemoveEvent(EventHandler a)
         {
-            checkingTimer.Tick += a;
+            checkingTimer.Tick -= a;
         }
 
         /// DispTime Tick Function (Adds The Time And Saves It All To The Json File)
@@ -251,6 +251,7 @@ namespace AppUsage
         {
             checkingTimer.IsEnabled = false;
             checkingTimer.Stop();
+            RemoveEvent(AppInfoTick);
         }
     }
 }
