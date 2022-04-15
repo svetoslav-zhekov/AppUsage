@@ -1,5 +1,5 @@
 # 🚨 Before forking this repo (PLEASE READ!) 🚨
-All the images, videos, sounds, music and logos in this project are with illustrative purposes only, they **cannot** be used, adapted, copied or published without their creator's permission.
+All the images, videos, sounds, music and logos in this project are with illustrative purposes only, they cannot be used, adapted, copied or published without their creator's permission.
 
 # ℹ️ About AppUsage ℹ️
 AppUsage is a personal project application which aims to provide information about CPU/RAM/GPU usage, track selected applications's time usage and display information about all running processes.
